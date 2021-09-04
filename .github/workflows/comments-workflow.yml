@@ -16,9 +16,9 @@ jobs:
     permissions:
       issues: write
     steps:
-      name: test
-      run : echo "I'm running"
-      
+      - name: test
+        run : echo "I'm running"
+
       # - name: Find Comment
       #   uses: peter-evans/find-comment@v1.3.0
       #   id: fc
