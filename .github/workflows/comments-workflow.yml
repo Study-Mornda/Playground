@@ -20,13 +20,17 @@ jobs:
         uses: peter-evans/find-comment@v1.3.0
         id: fc
         with:
-          issue-number: 2
+          issue-number: 1
+          # TODO 오답노트에 등록할 패턴 만들기
           body-includes: ${{ github.event.comment.body }}
-          comment-author: kimhanui
-      # - name: Create or Update Comment
-      #   uses: peter-evans/create-or-update-comment@v1.4.5
-      #   with:
-      #     issue-number: 2
-      #     body: |
-      #       ${{ github.event.comment.body }}
-            
+      # - run : |
+      #     echo ${{ steps.fc.outputs.comment-id }}
+      #     echo ${{ steps.fc.outputs.comment-body }}
+      #     echo ${{ steps.fc.outputs.comment-author }}
+      - name: Create or Update Comment
+        uses: peter-evans/create-or-update-comment@v1.4.5
+        with:
+          issue-number: 2
+          # 여기는 키 이름 body임 (body-includes아님)
+          body: |
+            ${{ github.event.comment.body }}
