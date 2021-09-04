@@ -22,7 +22,7 @@ jobs:
         with:
           issue-number: 2
           body-includes: ${{ github.event.comment.body }}
-
+          comment-author: kimhanui
       # - name: Create or Update Comment
       #   uses: peter-evans/create-or-update-comment@v1.4.5
       #   with:
