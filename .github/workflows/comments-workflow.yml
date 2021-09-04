@@ -31,10 +31,9 @@ jobs:
           issue-number: 1
           body-includes: ${{ github.event.comment.body }}
       - run: |
-        echo ${{ steps.fc.outputs.comment-id }}
-        echo ${{ steps.fc.outputs.comment-body }}
-        echo ${{ steps.fc.outputs.comment-author }}
-
+          echo ${{ steps.fc.outputs.comment-id }}
+          echo ${{ steps.fc.outputs.comment-body }}
+          echo ${{ steps.fc.outputs.comment-author }}
       - name: Create or Update Comment
         uses: peter-evans/create-or-update-comment@v1.4.5
         with:
