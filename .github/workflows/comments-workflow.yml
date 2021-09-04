@@ -21,7 +21,7 @@ jobs:
         id: fc
         with:
           issue-number: 2
-          body: ${{ github.event.comment.body }}
+          body-includes: ${{ github.event.comment.body }}
 
       # - name: Create or Update Comment
       #   uses: peter-evans/create-or-update-comment@v1.4.5
