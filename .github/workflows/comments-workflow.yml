@@ -16,16 +16,12 @@ jobs:
     permissions:
       issues: write
     steps:
-      - name: test
-        run : echo "I'm running"
-
-      # - name: Find Comment
-      #   uses: peter-evans/find-comment@v1.3.0
-      #   id: fc
-      #   with:
-      #     token: ${{sec}}
-      #     issue-number: ${{ github.event.pull_request.number }}
-      #     body-includes: Build output
+      - name: Find Comment
+        uses: peter-evans/find-comment@v1.3.0
+        id: fc
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body-includes: Build output
 
       # - name: Create or Update Comment
       #   uses: peter-evans/create-or-update-comment@v1.4.5
