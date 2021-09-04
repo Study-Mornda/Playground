@@ -11,7 +11,7 @@ jobs:
   issue_commented:
     name: Issue comment
     runs-on: ubuntu-latest
-    if: ${{ contains(github.event.comment.body, '[질문]') }}
+    # if: ${{ contains(github.event.comment.body, '[질문]') }}
     permissions:
       issues: write
     steps:
@@ -26,9 +26,15 @@ jobs:
           reactions: rocket
       - name: Find Comment
         uses: peter-evans/find-comment@v1.3.0
+        id: fc
         with:
-          issue-number: 2
+          issue-number: 1
           body-includes: ${{ github.event.comment.body }}
+      - run: |
+        echo ${{ steps.fc.outputs.comment-id }}
+        echo ${{ steps.fc.outputs.comment-body }}
+        echo ${{ steps.fc.outputs.comment-author }}
+
       - name: Create or Update Comment
         uses: peter-evans/create-or-update-comment@v1.4.5
         with:
