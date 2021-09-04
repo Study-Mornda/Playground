@@ -11,7 +11,7 @@ jobs:
   issue_commented:
     name: Issue comment
     runs-on: ubuntu-latest
-    if: ${{ contains(github.event.comment.body, '[질문]') }}
+    # if: ${{ contains(github.event.comment.body, '[질문]') }}
     permissions:
       issues: write
     steps:
