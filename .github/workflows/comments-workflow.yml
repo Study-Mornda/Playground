@@ -16,17 +16,17 @@ jobs:
     permissions:
       issues: write
     steps:
-      - name: Find Comment
-        uses: peter-evans/find-comment@v1.3.0
-        id: fc
-        with:
-          issue-number: ${{ github.event.pull_request.number }}
-          comment-author: kimhanui
-
-      # - name: Create or Update Comment
-      #   uses: peter-evans/create-or-update-comment@v1.4.5
+      # - name: Find Comment
+      #   uses: peter-evans/find-comment@v1.3.0
+      #   id: fc
       #   with:
-      #     issue-number: 13
-      #     body: |
-      #       ${{ github.event.comment.body }}
+      #     issue-number: ${{ github.event.pull_request.number }}
+      #     comment-author: kimhanui
+
+      - name: Create or Update Comment
+        uses: peter-evans/create-or-update-comment@v1.4.5
+        with:
+          issue-number: 1
+          body: |
+            ${{ github.event.comment.body }}
             
