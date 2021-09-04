@@ -15,11 +15,11 @@ jobs:
     permissions:
       issues: write
     steps:
-      # - name: Add reactions
-      #   uses: peter-evans/create-or-update-comment@v1
-      #   with:
-      #     comment-id: ${{github.event.comment.id}}
-      #     reactions: rocket
+      - name: Add reactions
+        uses: peter-evans/create-or-update-comment@v1
+        with:
+          comment-id: ${{github.event.comment.id}}
+          reactions: rocket
       - name: Find Comment
         uses: peter-evans/find-comment@v1.3.0
         id: fc
