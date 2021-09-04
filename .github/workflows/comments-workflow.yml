@@ -31,6 +31,5 @@ jobs:
         uses: peter-evans/create-or-update-comment@v1.4.5
         with:
           issue-number: 2
-          # 여기는 키 이름 body임 (body-includes아님)
           body: |
             ${{ github.event.comment.body }}
