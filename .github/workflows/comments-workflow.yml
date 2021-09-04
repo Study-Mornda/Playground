@@ -11,7 +11,7 @@ jobs:
   issue_commented:
     name: Issue comment
     # Run this job only for none pr comments
-    if: ${{ !github.event.issue.pull_request }} 
+    # if: ${{ !github.event.issue.pull_request }} 
     runs-on: ubuntu-latest
     permissions:
       issues: write
