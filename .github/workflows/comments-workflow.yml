@@ -6,7 +6,7 @@
 name: Add comment
 on:
   issue_comment:
-    types: [created, edited, deleted]
+    types: [created, edited]
 jobs:
   issue_commented:
     name: Issue comment
@@ -20,18 +20,19 @@ jobs:
           echo '${{ github.event.comment.body }}'
           echo '${{ github.event.comment.author }}'
       - name: Add reactions
-        uses: peter-evans/create-or-update-comment@v1
+        uses: peter-evans/create-or-update-comment@v1.4.5
         with:
           comment-id: ${{github.event.comment.id}}
           reactions: rocket
       - name: Find Comment
         uses: peter-evans/find-comment@v1.3.0
         with:
-          issue-number: 2
+          issue-number: 13
           body-includes: ${{ github.event.comment.body }}
       - name: Create or Update Comment
         uses: peter-evans/create-or-update-comment@v1.4.5
         with:
-          issue-number: 2
+          issue-number: 13
           body: |
+            > @${{ github.event.comment.author }}, #${{ github.event.comment.body }}
             ${{ github.event.comment.body }}
